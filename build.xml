@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="ant-metalink-zwiwo" basedir="." default="ant-metalink-zwiwo-example">
+    <property file="default.properties"/>
+    <target name="clean" description="Clean task">
+        <delete dir="classes"/>
+        <delete file="${ant.project.name}.jar"/>
+    </target>
+    <target name="compileTask" description="Compile task">
+        <mkdir dir="classes"/>
+        <javac srcdir="src" destdir="classes"/>
+    </target>
+    <target name="jarTask" description="JAR task" depends="compileTask">
+        <jar destfile="${ant.project.name}.jar" basedir="classes"/>
+    </target>
+    <target name="useTask" description="Use Metalink class Task" depends="jarTask">
+        <taskdef name="meta4" classname="MetaLinkClassTask" classpath="${ant.project.name}.jar"/>
+    </target>
+    <target name="ant-metalink-zwiwo-example" depends="useTask">
+        <meta4 file="zad-zwiwo.xml">
+            <fileset dir="." />
+        </meta4>
+    </target>
+</project>

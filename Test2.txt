@@ -1,0 +1,1 @@
+To jest zawartość pliku Test2.txt - to jest tekst 12323435678976543

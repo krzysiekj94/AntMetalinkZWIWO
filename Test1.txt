@@ -1,0 +1,1 @@
+To jest zawartość pliku Test1.txt - to jest tekst 123
